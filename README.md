@@ -1,4 +1,55 @@
 # CAFF-DETR
-Repository for "Multi-spectral detection transformers based on features fusion for aligned and misaligned image pairs" [Helvig et al.]. Explore the adaptation of DETRs architectures for backbone features fusion in IR-visible.
+Repository for the paper __"CAFF-DINO: Multi-spectral object detection transformers with cross-attention features fusion" [Helvig et al.]__, accepted in the __20 <sup> th </sup> IEEE Workshop Perception Beyond the visible Spectrum__, taking part of the CVPR 2024 conference. The work explores the adaptation of DETRs architectures for backbone features fusion on IR-visible data, through cross-attention fusion.
 
-Architectures released soon (various detr-based heads) 
+# Road-Map :construction: 
+- __Best architecture released soon__ : CAFF-DINO :t-rex: 
+- Several __other adaptations of DEtection TRansformers (DETR, H-DETR) released later__ :robot: 
+- Annotation files for LLVIP and FLIR dataset, converted in COCO format :notebook_with_decorative_cover:
+
+# Demo animations :movie_camera: 
+<figure>
+<p align="center">
+  <img src="illustrations\pairs_dino_testset_flir2-ezgif.com-optimize.gif" alt="Alt Text 1">
+  <img src="illustrations\pairs_dino_testset_llvip_v2.gif" alt="Alt Text 2">
+</p>
+<figcaption style="text-align: center; font-style: italic;"> <p> <i> Examples of multi-spectral object detections using our CAFF-DINO architecture, on FLIR then LLVIP. Labels are in red, while model's detections are in blue. 
+Object Detection's confidence threshold is 50 %.</i> </p> </figcaption>
+</figure>
+
+# Core principles :bulb: 
+
+The core principles of the proposed fusion are described in the illustrations bellow. See the paper for more theoretical stuffs. 
+
+<figure>
+<p align="center">
+  <img src="illustrations\fusion_DETR_globalpathway.png" alt="Alt Text 1" width="500" height="500" >
+</p>
+<figcaption style="text-align: center; font-style: italic;"> <p> <i> Illustration of the global detection transformer model : the proposed fusion approach inserts feature fusion operation (CAFF module) at each level of monospectral backbones, merging both modalities.</i> </p> </figcaption>
+</figure>
+
+<figure>
+<p align="center">
+  <img src="illustrations\Hcaff_module_schematics.png" alt="Alt Text 1" width="500" height="500">
+</p>
+<figcaption style="text-align: center; font-style: italic;"> <p> <i> Illustration of the features fusion module. The main idea is to use a cross-attention operation to extract meaningful correlations between both spectra's features, as a complementary information, before a convolutional features fusion layer.</i> </p> </figcaption>
+</figure>
+
+# Annotations :bookmark_tabs: 
+-- TO DO -- 
+
+The annotations files are adapted from the standard MS-COCO format. A key "image_IR" is added, to load the correspondant thermal image. 
+
+# Use :rocket: 
+-- TO DO -- 
+
+* Requirements install : identical to DETR-DINO
+* Training from scratch 
+* Fine-tune a pretrained one's
+
+# Cite :closed_book: 
+If the proposed fusion architecture is used for academic purpose, please consider citing our work: 
+
+```
+to complete
+```
+
