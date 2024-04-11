@@ -3,7 +3,7 @@ Repository for the paper __"CAFF-DINO: Multi-spectral object detection transform
 
 # Road-Map :construction: 
 - __Best architecture released soon__ : CAFF-DINO :t-rex: 
-- Several __other adaptations of DEtection TRansformers (DETR, H-DETR) released later__ :robot: 
+- Several __other adaptations of DEtection TRansformers (DETR, H-DETR, Lite-DINO) released later__ :robot: 
 - Annotation files for LLVIP and FLIR dataset, converted in COCO format :notebook_with_decorative_cover:
 
 # Demo animations :movie_camera: 
@@ -22,14 +22,14 @@ The core principles of the proposed fusion are described in the illustrations be
 
 <figure>
 <p align="center">
-  <img src="illustrations\fusion_DETR_globalpathway.png" alt="Alt Text 1" width="500" height="500" >
+  <img src="illustrations\fusion_DETR_globalpathway.png" alt="Alt Text 1" >
 </p>
 <figcaption style="text-align: center; font-style: italic;"> <p> <i> Illustration of the global detection transformer model : the proposed fusion approach inserts feature fusion operation (CAFF module) at each level of monospectral backbones, merging both modalities.</i> </p> </figcaption>
 </figure>
 
 <figure>
 <p align="center">
-  <img src="illustrations\Hcaff_module_schematics.png" alt="Alt Text 1" width="500" height="500">
+  <img src="illustrations\Hcaff_module_schematics.png" alt="Alt Text 1" width="700" height="500">
 </p>
 <figcaption style="text-align: center; font-style: italic;"> <p> <i> Illustration of the features fusion module. The main idea is to use a cross-attention operation to extract meaningful correlations between both spectra's features, as a complementary information, before a convolutional features fusion layer.</i> </p> </figcaption>
 </figure>
