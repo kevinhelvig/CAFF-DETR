@@ -38,9 +38,11 @@ The core principles of the proposed fusion are described in the illustrations be
 -- TO DO -- 
 
 The annotations files are adapted from the standard MS-COCO format. A key "image_IR" is added, to load the correspondant thermal image. 
+* [LLVIP]()
+* [FLIR]()
+
 
 # Use :rocket: 
--- TO DO -- 
 
 * Requirements install : identical to DETR-DINO original implementation
   ````
@@ -51,7 +53,7 @@ The annotations files are adapted from the standard MS-COCO format. A key "image
   You need to donwload the pretrained mono-spectra DETR-DINO in the proper folder (pretrained)
   Example of training command (LINUX system : might need code adaptation to work with Slurm)
   ````
-  CUDA_VISIBLE_DEVICES=0  python ./CAFF-DINO/main.py -c /d/khelvig/DINO-LLVIP/DINO_twostreams/config/DINO/DINO_5scale_swin.py --dataset_file 'fusion' --coco_path = ./dataset_files/LLVIP --pretrain_model_path ./pretrained/checkpoint0027_5scale_swin-001.pth --output_dir ./output_files
+  CUDA_VISIBLE_DEVICES=0  python ./CAFF-DINO/main.py -c ./CAFF-DINO/config/DINO/DINO_5scale_swin.py --dataset_file 'fusion' --coco_path = ./dataset_files/LLVIP --pretrain_model_path ./pretrained/checkpoint0027_5scale_swin-001.pth --output_dir ./output_files
   ````
 * Fine-tune a pretrained one's
   You may fine-tune a pretrained model, for specific, smaller fusion datasets. 
@@ -65,6 +67,6 @@ The annotations files are adapted from the standard MS-COCO format. A key "image
 If the proposed fusion architecture is used for academic purpose, please consider citing our work: 
 
 ```
-to complete
+to be completed
 ```
 
