@@ -64,9 +64,15 @@ The annotations files are adapted from the standard MS-COCO format. A key "image
 * DETR-DINO original architecture [here](https://github.com/IDEA-Research/DINO).
 
 # Cite :closed_book: 
-If the proposed fusion architecture is used for academic purpose, please consider citing our work: 
+If the proposed fusion architecture is used for academic purpose, please consider citing our work __(not yet available online, provisory citation)__ : 
 
 ```
-to be completed soon
+@inproceedings{HelvigCAFFDINO2024,
+  title={CAFF-DINO: Multi-spectral object detection transformers with cross-attention features fusion},
+  author={Helvig, Kevin and Abeloos, Baptiste and Trouve-Peloux, Pauline},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)},
+  year={2024},
+  organization={IEEE}
+}
 ```
 
