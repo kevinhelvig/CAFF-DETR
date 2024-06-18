@@ -1,5 +1,5 @@
 # CAFF-DETR
-Repository for the paper __"CAFF-DINO: Multi-spectral object detection transformers with cross-attention features fusion" [Helvig et al.]__, accepted in the __20 <sup> th </sup> IEEE Workshop Perception on Beyond the Visible Spectrum__, taking part of the CVPR 2024 conference. The work explores the adaptation of DETRs architectures for backbone features fusion on IR-visible data, through cross-attention fusion.
+Repository for the paper __"CAFF-DINO: Multi-spectral object detection transformers with cross-attention features fusion" [Helvig et al.]__, accepted in the __20 <sup> th </sup> IEEE Workshop on Perception on Beyond the Visible Spectrum__, taking part of the CVPR 2024 conference. The work explores the adaptation of DETRs architectures for backbone features fusion on IR-visible data, through cross-attention fusion.
 
 # Road-Map :construction: 
 - __Best architecture released soon__ : CAFF-DINO :t-rex: 
@@ -67,6 +67,6 @@ The annotations files are adapted from the standard MS-COCO format. A key "image
 If the proposed fusion architecture is used for academic purpose, please consider citing our work: 
 
 ```
-to be completed
+to be completed soon
 ```
 
