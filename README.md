@@ -64,7 +64,7 @@ The annotations files are adapted from the standard MS-COCO format. A key "image
 * DETR-DINO original architecture [here](https://github.com/IDEA-Research/DINO).
 
 # Cite :closed_book: 
-If the proposed fusion architecture is used for academic purpose, please consider citing our work __(not yet available online, provisory citation)__ : 
+If the proposed fusion architecture is used for academic purpose, please consider citing our work: 
 
 ```
 @inproceedings{HelvigCAFFDINO2024,
