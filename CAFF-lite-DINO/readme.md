@@ -11,9 +11,9 @@ __see Legacy_README.md for the original mono-spectrum architecture details, hype
 
 ## Overview :mag_right:
 
-Link to the original mono-spectrum implementation <br>
-Github: [https://github.com/IDEA-Research/Lite-DETR](https://github.com/IDEA-Research/Lite-DETR) <br>
-Paper: [Lite DETR : An Interleaved Multi-Scale Encoder for Efficient DETR](https://arxiv.org/pdf/2303.07335.pdf)
+Links to the original mono-spectrum implementation <br>
+* Github: [https://github.com/IDEA-Research/Lite-DETR](https://github.com/IDEA-Research/Lite-DETR) <br>
+* Paper: [Lite DETR : An Interleaved Multi-Scale Encoder for Efficient DETR](https://arxiv.org/pdf/2303.07335.pdf)
 
 ## Installation :minidisc:
 
