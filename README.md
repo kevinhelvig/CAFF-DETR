@@ -2,10 +2,10 @@
 Repository for the paper __"CAFF-DINO: Multi-spectral object detection transformers with cross-attention features fusion" [Helvig et al.]__, accepted in the __20 <sup> th </sup> IEEE Workshop on Perception on Beyond the Visible Spectrum__, taking part of the CVPR 2024 conference. The work explores the adaptation of DETRs architectures for backbone features fusion on IR-visible data, through cross-attention fusion.
 
 # Road-Map :construction: 
-- __repo will be updated in the few next weeks : delayed due to other works and thesis manuscript writing  __
-- __Best architecture released soon__ : CAFF-DINO :t-rex: 
-- Several __other adaptations of DEtection TRansformers (DETR, H-DETR, Lite-DINO) released later__ :robot: 
-- Annotation files for LLVIP and FLIR dataset, converted in COCO format :notebook_with_decorative_cover:
+- [10/2024] : __progressive release of models and weights during the month (CAFF-DINO, CAFF-lite-DINO)__ :t-rex: :lizard: 	
+- [10/2024] : __Annotation files for LLVIP and FLIR dataset are added__, converted in COCO format :notebook_with_decorative_cover:
+- Several __other adaptations of DEtection TRansformers (DETR, H-DETR) may be released later__ :robot: 
+
 
 # Demo animations :movie_camera: 
 <figure>
@@ -36,12 +36,37 @@ The core principles of the proposed fusion are described in the illustrations be
 </figure>
 
 # Annotations :bookmark_tabs: 
--- TO DO -- 
+The annotations files are adapted from the standard MS-COCO format. For FLIR, a key "image_IR" is added, to load the correspondant thermal image.
 
-The annotations files are adapted from the standard MS-COCO format. A key "image_IR" is added, to load the correspondant thermal image. 
-* [LLVIP]()
-* [FLIR]()
+* [LLVIP](https://zenodo.org/records/13907794/files/LLVIP_coco.zip?download=1) <br>
+  The original image collection can be downloaded [here](https://bupt-ai-cz.github.io/LLVIP). 
+  These data need to be organized as following :
+````bash 
+├── LLVIP/
+│   ├── visible/
+│   │   ├── train/
+│   │   └── test/
+│   ├── infrared/
+│   │   ├── train/
+│   │   └── test/
+│   ├── coco_annotations/
+│   │   ├── train.json
+│   │   └── val.json
+````
 
+* [FLIR](https://zenodo.org/records/13907794/files/FLIR_coco.zip?download=1) <br>
+  A reliable source link to the data collection will be added soon (various contradictory sources for this dataset). 
+  These data need to be organized as following :
+````bash 
+├── FLIR_aligned_coco/
+│   ├── train_RGB/
+│   ├── val_RGB/
+│   ├── train_thermal/
+│   ├── val_thermal/
+│   ├── annotations/
+│   │   ├── train.json
+│   │   └── val.json
+````
 
 # Use :rocket: 
 
