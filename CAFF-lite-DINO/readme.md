@@ -2,7 +2,7 @@
 
 This repository contains an implementation of the CAFF (Cross-Attention Feature Fusion) module designed for the Lite-DINO architecture. The CAFF module aims to enhance feature fusion across different levels in the Lite-DINO model, improving performance on object detection tasks.
 
-:warning: Please note that the proposed model is adapted for Resnet-50 features extraction, then following the fusion module settings described in the paper for this backbone.
+:warning: Please note that the proposed model is adapted for Resnet-50 features extraction, then following the fusion module settings described in the paper for this backbone. Training with greater Resnets or Swin features extraction should give better performance, and corresponding weights may be released in the longer run 🙂. 
 
 The lite-DINO architecture is lighter and faster in inference than the DETR-DINO approach, while providing reasonable detection performance. 
 __see Legacy_README.md for the original mono-spectrum architecture details, hyper-parameters settings ...__ <br> 
