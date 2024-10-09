@@ -2,9 +2,12 @@
 Repository for the paper __"CAFF-DINO: Multi-spectral object detection transformers with cross-attention features fusion" [Helvig et al.]__, accepted in the __20 <sup> th </sup> IEEE Workshop on Perception on Beyond the Visible Spectrum__, taking part of the CVPR 2024 conference. The work explores the adaptation of DETRs architectures for backbone features fusion on IR-visible data, through cross-attention fusion.
 
 # Road-Map :construction: 
+- [10/09/2024] : __CAFF-Lite-DINO is released !__ (weights from FLIR and LLVIP trainings are out too). See [this folder](https://github.com/kevinhelvig/CAFF-DETR/tree/main/CAFF-lite-DINO). :lizard:
 - [10/2024] : __progressive release of models and weights during the month (CAFF-DINO, CAFF-lite-DINO)__ :t-rex: :lizard: 	
 - [10/2024] : __Annotation files for LLVIP and FLIR dataset are added__, converted in COCO format :notebook_with_decorative_cover:
-- Several __other adaptations of DEtection TRansformers (DETR, H-DETR) may be released later__ :robot: 
+- Several __other adaptations of DEtection TRansformers (DETR, H-DETR) may be released later__ :robot:
+<br> 
+"Raw" code released first : A code cleaning step is planned, during the next months. :face_in_clouds:
 
 
 # Demo animations :movie_camera: 
