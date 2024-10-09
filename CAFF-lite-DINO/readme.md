@@ -22,4 +22,4 @@ cd ./CAFF-DETR/CAFF-Lite-DINO
 pip install -r requirements.txt
 ```
 
-Run (train/inference) is comparable to the CAFF-DINO implementation
+Run (train/inference) is comparable to the CAFF-DINO implementation. Need several manual modification to run depending of the input data (__code cleaning is planned__). Read scripts (main.py) for details on how to run properly. 
