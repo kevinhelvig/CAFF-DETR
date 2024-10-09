@@ -4,6 +4,9 @@ This repository contains an implementation of the CAFF (Cross-Attention Feature 
 
 :warning: Please note that the proposed model is adapted for Resnet-50 features extraction, then following the fusion module settings described in the paper for this backbone.
 
+__see Legacy_README.md for the original mono-spectrum architecture details, hyper-parameters settings__ <br> 
+<br>
+[10/09/2024] : __first release__ of the model, weights are coming. __The script needs several cleaning__ (less hacks, proper functions and classes to load each dataset properly => __incoming in the next weeks__  :lizard:
 ## Overview
 
 Link to the original mono-spectrum implementation <br>
