@@ -27,5 +27,5 @@ Run (train/inference) is comparable to the CAFF-DINO implementation. Need severa
 
 ## Weights :weight_lifting:
 We released the trained models for LLVIP and FLIR-aligned dataset (best mean average precision obtained), with the associated log files. <br> 
-LLVIP [[Checkpoint](https://zenodo.org/records/13908222/files/checkpoint_best_CAFF-LITE-DINO_LLVIP.pth?download=1)][[log](https://zenodo.org/records/13908222/files/log_LLVIP_CAFF-LITE-DINO.txt?download=1)] <br>
-FLIR-aligned [[Checkpoint](https://zenodo.org/records/13908222/files/checkpoint_best_CAFF-LITE-DINO_FLIR.pth?download=1)][[log](https://zenodo.org/records/13908222/files/log_FLIR-Aligned_CAFF-LITE-DINO.txt?download=1)]
+* LLVIP [[Checkpoint](https://zenodo.org/records/13908222/files/checkpoint_best_CAFF-LITE-DINO_LLVIP.pth?download=1)][[log](https://zenodo.org/records/13908222/files/log_LLVIP_CAFF-LITE-DINO.txt?download=1)] <br>
+* FLIR-aligned [[Checkpoint](https://zenodo.org/records/13908222/files/checkpoint_best_CAFF-LITE-DINO_FLIR.pth?download=1)][[log](https://zenodo.org/records/13908222/files/log_FLIR-Aligned_CAFF-LITE-DINO.txt?download=1)]
