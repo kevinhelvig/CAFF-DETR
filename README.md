@@ -57,8 +57,8 @@ The annotations files are adapted from the standard MS-COCO format. For FLIR, a 
 │   │   └── val.json
 ````
 
-* [FLIR](https://zenodo.org/records/13907794/files/FLIR_coco.zip?download=1) <br>
-  A reliable source link to the data collection will be added soon (various contradictory sources for this dataset). 
+* [FLIR-Aligned](https://zenodo.org/records/13907794/files/FLIR_coco.zip?download=1) <br>
+  A source link to the data collection is added [here](https://github.com/zonaqiu/FLIR-align) ( :warning: various contradictory sources for this dataset). 
   These data need to be organized as following :
 ````bash 
 ├── FLIR_aligned_coco/
