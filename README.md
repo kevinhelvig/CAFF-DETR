@@ -39,7 +39,7 @@ The core principles of the proposed fusion are described in the illustrations be
 </figure>
 
 # Annotations :bookmark_tabs: 
-The annotations files are adapted from the standard MS-COCO format. For FLIR, a key "image_IR" is added, to load the correspondant thermal image.
+The annotations files are adapted from the standard MS-COCO format. For FLIR, a key "image_IR" is added, to load the correspondant thermal image. Using COCO annotations allows to use the [pyCOCOtools API](https://pypi.org/project/pycocotools/) for metrics evaluation, which is "native" in DEtection TRansformers, while __MUCH__ easier than the other techniques. 
 
 * [LLVIP](https://zenodo.org/records/13907794/files/LLVIP_coco.zip?download=1) <br>
   The original image collection can be downloaded [here](https://bupt-ai-cz.github.io/LLVIP). 
