@@ -95,7 +95,7 @@ The annotations files are adapted from the standard MS-COCO format. For FLIR, a 
 # Cite :closed_book: 
 If the proposed fusion architecture is used for academic purpose, please consider citing our work: 
 
-```
+```bibtex
 @inproceedings{HelvigCAFFDINO2024,
   title={CAFF-DINO: Multi-spectral object detection transformers with cross-attention features fusion},
   author={Helvig, Kevin and Abeloos, Baptiste and Trouve-Peloux, Pauline},
