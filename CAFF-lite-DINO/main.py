@@ -1,3 +1,4 @@
+# khelvig
 # Copyright (c) Facebook, Inc. and its affiliates. All Rights Reserved
 import argparse
 import datetime
@@ -58,7 +59,7 @@ def get_args_parser():
                         help='device to use for training / testing')
     parser.add_argument('--seed', default=42, type=int)
     parser.add_argument('--resume', default='', help='resume from checkpoint')
-    parser.add_argument('--pretrain_model_path', help='load from other checkpoint')
+    parser.add_argument('--pretrain_model_coco', help='load from the original coco checkpoint (mono-spectrum initialization)')
     parser.add_argument('--finetune_ignore', type=str, nargs='+')
     parser.add_argument('--start_epoch', default=0, type=int, metavar='N',
                         help='start epoch')
@@ -303,8 +304,8 @@ def main(args):
             #     for i in range(args.start_epoch):
             #         lr_scheduler.step()
 
-    if (not args.resume) and args.pretrain_model_path:
-        checkpoint = torch.load(args.pretrain_model_path, map_location='cpu')#['model']
+    if (not args.resume) and args.pretrain_model_coco: # for training "from scratch" i.e coco mono-spectrum initialization
+        checkpoint = torch.load(args.pretrain_model_coco, map_location='cpu')#['model']
         model_dict = model.state_dict()
         new_dict = model_dict.copy() 
         # ------ inject pretrained model: chirurgical clamp
@@ -493,15 +494,16 @@ def main(args):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser('DETR training and evaluation script', parents=[get_args_parser()])
     args = parser.parse_args()
-    args.dataset_file = 'fusion' # artificial setting to add fusion : remove may come back to the mono-spectrum architecture 
-    # args.coco_path = r'./LLVIP' 
-    # args.coco_path = r'./FLIR_aligned_coco'
-    
-    args.config_file = './Lite-DETR/config/DINO/DINO_4scale.py'
-
-    # args.pretrain_model_path = r'./models/r50_s3ex3_50.4.pth' # for training from coco weights 
-    # args.resume = '...' " for fine-tuning from LLVIP/FLIR_aligned neural weights
-    # args.output_dir = './' 
+    # kept as examples for runs : 
+    # args.dataset_file = 'flir_fusion' # args.dataset_file = 'llvip_fusion'
+    # args.coco_path = r'/d/khelvig/LLVIP'
+    # args.coco_path = r'/d/khelvig/FLIR_aligned_coco'
+    # args.config_file = '/d/khelvig/DINO-LLVIP/DINO/config/DINO/DINO_5scale_bis.py'
+    # args.config_file = '/d/khelvig/lite_detr_fuse/Lite-DETR/config/DINO/DINO_4scale.py'
+    # args.pretrain_model_path = r'/d/khelvig/DINO-LLVIP/pretrain/checkpoint0031_5scale.pth'
+    # args.pretrain_model_coco = r'/d/khelvig/lite_detr_fuse/model/r50_s3ex3_50.4.pth'
+    # args.output_dir = '/d/khelvig/lite_detr_fuse/out/output_dinolite_5scale_pretrained_FLIR1_res50frozen_0'
     if args.output_dir:
         Path(args.output_dir).mkdir(parents=True, exist_ok=True)
     main(args)
+
