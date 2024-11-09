@@ -1,3 +1,4 @@
+# khelvig
 # ------------------------------------------------------------------------
 # Deformable DETR
 # Copyright (c) 2020 SenseTime. All Rights Reserved.
@@ -5,5 +6,5 @@
 # ------------------------------------------------------------------------
 
 from .coco import CocoDetection
-from .coco import CocoDetection_RGBT
-from .coco import CocoDetection_RGBT_LLVIP
+from .coco import CocoDetection_RGBT_FLIR # for data organized following flir structure 
+from .coco import CocoDetection_RGBT_LLVIP # for data organized following llvip structure
