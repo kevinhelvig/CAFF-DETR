@@ -43,17 +43,17 @@ def train_one_epoch(model: torch.nn.Module, criterion: torch.nn.Module,
     print_freq = 10
 
     _cnt = 0
-    for samples, samples_thermal, targets in metric_logger.log_every(data_loader, print_freq, header, logger=logger):
+    for samples_1, samples_2, targets in metric_logger.log_every(data_loader, print_freq, header, logger=logger):
 
-        samples = samples.to(device)
-        samples_thermal = [t.to(device) for t in samples_thermal]
+        samples_1 = samples_1.to(device)
+        samples_2 = [t.to(device) for t in samples_2]
         targets = [{k: v.to(device) for k, v in t.items()} for t in targets]
 
         with torch.cuda.amp.autocast(enabled=args.amp):
             if need_tgt_for_training:
-                outputs = model(samples, samples_thermal, targets)
+                outputs = model(samples_1, samples_2, targets)
             else:
-                outputs = model(samples, samples_thermal)
+                outputs = model(samples_1, samples_2)
         
             loss_dict = criterion(outputs, targets)
             weight_dict = criterion.weight_dict
@@ -161,18 +161,18 @@ def evaluate(model, criterion, postprocessors, data_loader, base_ds, device, out
 
     _cnt = 0
     output_state_dict = {} # for debug only
-    for samples, samples_thermal, targets in metric_logger.log_every(data_loader, 10, header, logger=logger):
-        samples = samples.to(device)
-        samples_thermal = [t.to(device) for t in samples_thermal]
+    for samples_1, samples_2, targets in metric_logger.log_every(data_loader, 10, header, logger=logger):
+        samples_1= samples_1.to(device)
+        samples_2 = [t.to(device) for t in samples_2]
         # import ipdb; ipdb.set_trace()
         # targets = [{k: v.to(device) for k, v in t.items()} for t in targets]
         targets = [{k: to_device(v, device) for k, v in t.items()} for t in targets]
 
         with torch.cuda.amp.autocast(enabled=args.amp):
             if need_tgt_for_training:
-                outputs = model(samples, samples_thermal, targets)
+                outputs = model(samples_1, samples_2, targets)
             else:
-                outputs = model(samples, samples_thermal)
+                outputs = model(samples_1, samples_2)
             # outputs = model(samples)
 
             loss_dict = criterion(outputs, targets)
@@ -327,13 +327,13 @@ def test(model, criterion, postprocessors, data_loader, base_ds, device, output_
         )
 
     final_res = []
-    for samples, targets in metric_logger.log_every(data_loader, 10, header, logger=logger):
-        samples = samples.to(device)
+    for samples_1, targets in metric_logger.log_every(data_loader, 10, header, logger=logger):
+        samples_1= samples_1.to(device)
         # import ipdb; ipdb.set_trace()
         # targets = [{k: v.to(device) for k, v in t.items()} for t in targets]
         targets = [{k: to_device(v, device) for k, v in t.items()} for t in targets]
 
-        outputs = model(samples)
+        outputs = model(samples_1, samples_2)
         # loss_dict = criterion(outputs, targets)
         # weight_dict = criterion.weight_dict
 
