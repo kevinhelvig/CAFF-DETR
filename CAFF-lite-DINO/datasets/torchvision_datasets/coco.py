@@ -1,3 +1,4 @@
+# khelvig
 # ------------------------------------------------------------------------
 # Deformable DETR
 # Copyright (c) 2020 SenseTime. All Rights Reserved.
@@ -92,7 +93,7 @@ import torch.utils.data as data
 
 from torchvision.utils import _log_api_usage_once
 
-class CocoDetection_RGBT(VisionDataset):
+class CocoDetection_RGBT_FLIR(VisionDataset):
     """`MS Coco Detection <http://mscoco.org/dataset/#detections-challenge2016>`_ Dataset.
     Args:
         root (string): Root directory where images are downloaded to.
@@ -251,8 +252,8 @@ class CocoDetection_RGBT_LLVIP(VisionDataset):
         #print(ann_ids) 
         target = coco.loadAnns(ann_ids)
         
-        path_RGB = coco.loadImgs(img_id)[0]['file_name_RGB']
-        path_thermal = coco.loadImgs(img_id)[0]['file_name_IR']
+        path_RGB = coco.loadImgs(img_id)[0]['file_name']
+        path_thermal = coco.loadImgs(img_id)[0]['file_name']
         """
         path_RGB = coco.loadImgs(img_id)[0]['file_name']
         path_thermal = coco.loadImgs(img_id)[0]['file_name'] 
@@ -267,3 +268,4 @@ class CocoDetection_RGBT_LLVIP(VisionDataset):
 
     def __len__(self):
         return len(self.ids)
+
