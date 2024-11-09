@@ -108,7 +108,7 @@ class CocoDetection_RGBT_FLIR(VisionDataset):
 
     def __init__(self, root_rgb, root_thermal, ann_file, transform=None, target_transform=None, transforms=None,
                  cache_mode=False, local_rank=0, local_size=1):
-        super(CocoDetection_RGBT, self).__init__(root_rgb, transforms, transform, target_transform)
+        super(CocoDetection_RGBT_FLIR, self).__init__(root_rgb, transforms, transform, target_transform)
         self.root_rgb = root_rgb
         self.root_thermal = root_thermal
         self.ann_file = ann_file 
