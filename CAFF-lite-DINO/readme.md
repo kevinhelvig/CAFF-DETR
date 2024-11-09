@@ -9,7 +9,7 @@ This repository contains an implementation of the CAFF (Cross-Attention Feature 
 The lite-DINO architecture is lighter and faster in inference than the DETR-DINO approach, while providing reasonable detection performance. 
 __see Legacy_README.md for the original mono-spectrum architecture details, hyper-parameters settings ...__ <br> 
 <br>
-* __[10/09/2024]__ : __parser corrected__ for easier run (no hardcoded changes between FLIR and LLVIP etc ...) 
+* __[11/09/2024]__ : __parser corrected__ for easier run (no hardcoded changes between FLIR and LLVIP etc ...) 
 * __[10/09/2024]__ : __first release__ of the model with weights after training on LLVIP and FLIR-aligned datasets. __The script needs several cleaning__ (less hacks, proper functions and classes to load each dataset properly => __incoming in the next weeks__ )  :lizard:
 
 ## Overview :mag_right:
