@@ -1,3 +1,4 @@
+# khelvig
 # Copyright (c) Facebook, Inc. and its affiliates. All Rights Reserved
 """
 COCO dataset which returns image_id for evaluation.
@@ -25,8 +26,9 @@ import datasets.transforms_fusion as T_fuse
 
 from util.box_ops import box_cxcywh_to_xyxy, box_iou
 
-from .torchvision_datasets import CocoDetection_RGBT as RGBTTvCocoDetection 
+# from .torchvision_datasets import CocoDetection_RGBT as RGBTTvCocoDetection 
 from .torchvision_datasets import CocoDetection_RGBT_LLVIP as RGBT_LLVIP
+from .torchvision_datasets import CocoDetection_RGBT_FLIR as RGBT_FLIR
 
 __all__ = ['build']
 
@@ -801,9 +803,9 @@ class ConvertCocoPolysToMask_fuse(object):
 
         return image_visible, image_ir, target
 
-class CocoDetection_RGBT(RGBT_LLVIP):
+class CocoDetection_RGBT_LLVIP(RGBT_LLVIP):
     def __init__(self, folder_rgb, folder_thermal, ann_file, transforms, return_masks, aux_target_hacks=None):
-        super(CocoDetection_RGBT, self).__init__(folder_rgb, folder_thermal, ann_file)
+        super(CocoDetection_RGBT_LLVIP, self).__init__(folder_rgb, folder_thermal, ann_file)
         # ,cache_mode=cache_mode, local_rank=local_rank, local_size=local_size)
         self._transforms = transforms
         self.prepare = ConvertCocoPolysToMask_fuse(return_masks)
@@ -823,7 +825,38 @@ class CocoDetection_RGBT(RGBT_LLVIP):
                 return item
 
     def __getitem__(self, idx):
-        img_RGB, img_IR, target = super(CocoDetection_RGBT, self).__getitem__(idx)
+        img_RGB, img_IR, target = super(CocoDetection_RGBT_LLVIP, self).__getitem__(idx)
+        image_id = self.ids[idx]
+        target = {'id': image_id, 'annotations': target} # FLIR: image_id 
+        #print(target["id"]) 
+        img_RGB, img_IR, target = self.prepare(img_RGB, img_IR, target)
+        if self._transforms is not None:
+            img_RGB, img_IR, target = self._transforms(img_RGB, img_IR, target)
+        return img_RGB, img_IR, target
+        
+class CocoDetection_RGBT_FLIR(RGBT_FLIR):
+    def __init__(self, folder_rgb, folder_thermal, ann_file, transforms, return_masks, aux_target_hacks=None):
+        super(CocoDetection_RGBT_FLIR, self).__init__(folder_rgb, folder_thermal, ann_file)
+        # ,cache_mode=cache_mode, local_rank=local_rank, local_size=local_size)
+        self._transforms = transforms
+        self.prepare = ConvertCocoPolysToMask_fuse(return_masks)
+        self.aux_target_hacks = aux_target_hacks
+
+    def change_hack_attr(self, hackclassname, attrkv_dict):
+        target_class = dataset_hook_register[hackclassname]
+        for item in self.aux_target_hacks:
+            if isinstance(item, target_class):
+                for k,v in attrkv_dict.items():
+                    setattr(item, k, v)
+
+    def get_hack(self, hackclassname):
+        target_class = dataset_hook_register[hackclassname]
+        for item in self.aux_target_hacks:
+            if isinstance(item, target_class):
+                return item
+
+    def __getitem__(self, idx):
+        img_RGB, img_IR, target = super(CocoDetection_RGBT_FLIR, self).__getitem__(idx)
         image_id = self.ids[idx]
         target = {'id': image_id, 'annotations': target} # FLIR: image_id 
         #print(target["id"]) 
@@ -989,7 +1022,7 @@ def make_coco_transforms_RGBT(image_set, fix_size=False, strong_aug=False, args=
 
     raise ValueError(f'unknown {image_set}')
     
-def build_RGBT(image_set, args):
+def build_RGBT_FLIR(image_set, args):
 
     root = Path(args.coco_path)
     assert root.exists(), f'provided COCO path {root} does not exist'
@@ -1006,7 +1039,24 @@ def build_RGBT(image_set, args):
     folder_thermal = folders_thermal[image_set]
     folder_rgb = folders_rgb[image_set]
     ann_file = ann_files[image_set]
-    dataset = CocoDetection_RGBT(folder_rgb=folder_rgb, folder_thermal=folder_thermal, ann_file=ann_file, transforms=make_coco_transforms_RGBT(image_set), return_masks=args.masks,
+    dataset = CocoDetection_RGBT_FLIR(folder_rgb=folder_rgb, folder_thermal=folder_thermal, ann_file=ann_file, transforms=make_coco_transforms_RGBT(image_set), return_masks=args.masks,
+                                  )
+    return dataset
+    
+def build_RGBT_LLVIP(image_set, args):
+
+    root = Path(args.coco_path)
+    assert root.exists(), f'provided COCO path {root} does not exist'
+    mode = 'instances'
+    
+    folders_thermal = {"train": (root / "infrared" / "train"), "val": (root / "infrared" / "test")} 
+    folders_rgb = {"train": (root/ "visible" / "train"), "val": (root / "visible" / "test")} 
+    ann_files = {"train": (root / "coco_annotations" / 'LLVIP_train.json'), "val": root / "coco_annotations" / 'LLVIP_test.json'} 
+    
+    folder_thermal = folders_thermal[image_set]
+    folder_rgb = folders_rgb[image_set]
+    ann_file = ann_files[image_set]
+    dataset = CocoDetection_RGBT_LLVIP(folder_rgb=folder_rgb, folder_thermal=folder_thermal, ann_file=ann_file, transforms=make_coco_transforms_RGBT(image_set), return_masks=args.masks,
                                   )
     return dataset
 
