@@ -9,6 +9,7 @@ This repository contains an implementation of the CAFF (Cross-Attention Feature 
 The lite-DINO architecture is lighter and faster in inference than the DETR-DINO approach, while providing reasonable detection performance. 
 __see Legacy_README.md for the original mono-spectrum architecture details, hyper-parameters settings ...__ <br> 
 <br>
+* __[10/09/2024]__ : __parser corrected__ for easier run (no hardcoded changes between FLIR and LLVIP etc ...) 
 * __[10/09/2024]__ : __first release__ of the model with weights after training on LLVIP and FLIR-aligned datasets. __The script needs several cleaning__ (less hacks, proper functions and classes to load each dataset properly => __incoming in the next weeks__ )  :lizard:
 
 ## Overview :mag_right:
@@ -27,6 +28,12 @@ pip install -r requirements.txt
 ```
 
 Run (train/inference) is comparable to the CAFF-DINO implementation. Need several manual modification to run depending of the input data (__code cleaning is planned__). Read scripts (main.py) for details on how to run properly. 
+ * Example of training command: 
+```bash
+CUDA_VISIBLE_DEVICES=0  python3 main.py -c /CAFF-lite-DINO/config/DINO/DINO_4scale.py --dataset_file=llvip_fusion --coco_path=./LLVIP --output_dir=./output --pretrain_model_coco='r50_s3ex3_50.4.pth'
+```
+
+The argument "pretrained_model_path" is replaced with the args.resume, for the loading of pretrained multi-spectral weights. It should be corrected in the longer run. A proper visualization code should be added too.
 
 ## Weights :weight_lifting:
 We released the trained models for LLVIP and FLIR-aligned dataset (best mean average precision obtained), with the associated log files. <br> 
