@@ -33,7 +33,7 @@ Run (train/inference) is comparable to the CAFF-DINO implementation. Need severa
 CUDA_VISIBLE_DEVICES=0  python3 main.py -c /CAFF-lite-DINO/config/DINO/DINO_4scale.py --dataset_file=llvip_fusion --coco_path=./LLVIP --output_dir=./output --pretrain_model_coco='r50_s3ex3_50.4.pth'
 ```
 
-The argument "pretrained_model_path" is replaced with the args.resume, for the loading of pretrained multi-spectral weights. It should be corrected in the longer run. A proper visualization code should be added too.
+The argument "pretrained_model_path" is replaced with the args.resume, for the loading of pretrained multi-spectral weights. It should be corrected in the longer run. "pretrain_model_coco" is for coco-monospectrum weights init., which is critical for proper performance. A proper visualization code should be added too.
 
 ## Weights :weight_lifting:
 We released the trained models for LLVIP and FLIR-aligned dataset (best mean average precision obtained), with the associated log files. <br> 
