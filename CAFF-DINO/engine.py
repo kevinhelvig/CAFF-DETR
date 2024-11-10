@@ -37,8 +37,7 @@ def train_one_epoch(model: torch.nn.Module, criterion: torch.nn.Module,
     # backbones freezing
     for name, param in model.named_parameters():
         if name.split(".")[0] == 'backbone_visible' or name.split(".")[0] == 'backbone' or name.split(".")[0] == 'backbone_ir': # to uncomment for full training 
-            pass 
-            # param.requires_grad = False
+            param.requires_grad = False
         """
         # Freeze the fusion module after learning on LLVIP : extreme learning hack  
         if name.split(".")[0] == 'conv_corr' : # or name.split(".")[0] == 'redim_corr': # to uncomment for full training 
