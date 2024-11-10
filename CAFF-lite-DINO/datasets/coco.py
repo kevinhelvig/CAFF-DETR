@@ -1051,7 +1051,7 @@ def build_RGBT_LLVIP(image_set, args):
     
     folders_thermal = {"train": (root / "infrared" / "train"), "val": (root / "infrared" / "test")} 
     folders_rgb = {"train": (root/ "visible" / "train"), "val": (root / "visible" / "test")} 
-    ann_files = {"train": (root / "coco_annotations" / 'LLVIP_train.json'), "val": root / "coco_annotations" / 'LLVIP_test.json'} 
+    ann_files = {"train": (root / "coco_annotations" / 'train.json'), "val": root / "coco_annotations" / 'val.json'} 
     
     folder_thermal = folders_thermal[image_set]
     folder_rgb = folders_rgb[image_set]
