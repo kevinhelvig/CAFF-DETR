@@ -6,8 +6,8 @@ This repository contains an implementation of the CAFF (Cross-Attention Feature 
 
 __see the Legacy_README.md for the original mono-spectrum architecture details, hyper-parameters settings ...__ <br> 
 <br>
-
-* __[11/10/2024]__ : __first release__, the code is as easy to manipulate as the other DETRs. Weights and logs incoming (new/longer trainings🧑‍🍳).  🖋️
+* __[11/11/2024]__ : The original weights and logs after training are released: new/longer trainings should be added in the next future🧑‍🍳.
+* __[11/10/2024]__ : __first release__, the code is as easy to manipulate as the other DETRs.   🖋️
   
 ## Overview :mag_right:
 
@@ -41,6 +41,10 @@ CUDA_VISIBLE_DEVICES=0  python3 ./CAFF-DINO/main.py -c ./CAFF-DINO/config/DINO/D
 "pretrain_model_path" is for multi-spectral weights init. from LLVIP or FLIR to train on a custom limited dataset with a starting point (data needs to follow either "FLIR-coco" organization" or "LLVIP-coco", as described in the main page). A proper visualization code should be added.
 
 ## Weights :weight_lifting:
-Due to issues with the preservation of previous trainings we are working on new trains of the proposed model. We will released the trained models for LLVIP and FLIR-aligned dataset (best mean average precision obtained), with the associated log files as soon as possible : __small variation of performance__ compared with the paper may be present. <br> 
-* LLVIP (not yet available) [[Checkpoint]()][[log]()] <br>
-* FLIR-aligned  (not yet available) [[Checkpoint]()][[log]()]
+We release the original training weights and log files (11 epochs for training) <br> 
+* LLVIP - 11 epochs [[Checkpoint](https://zenodo.org/records/14065648/files/checkpoint_best_regular_CAFF-DINO_LLVIP-training_11epochs.pth?download=1)][[log](https://zenodo.org/records/14065648/files/log_CAFF-DINO_LLVIP-training_11epochs.txt?download=1)] <br>
+* FLIR-aligned - 11 epochs [[Checkpoint](https://zenodo.org/records/14065648/files/checkpoint_best_regular_CAFF-DINO_FLIR-training_11epochs.pth?download=1)][[log](https://zenodo.org/records/14065648/files/log_CAFF-DINO_FLIR-training_11epochs.txt?download=1)]
+
+We will add longer training results during the next weeks 🧑‍🍳. __Small variation of performance__ compared with the paper may be present.
+* LLVIP - 31 epochs (not yet available) [[Checkpoint]()][[log]()] <br>
+* FLIR-aligned - 31 epochs  (not yet available) [[Checkpoint]()][[log]()]
