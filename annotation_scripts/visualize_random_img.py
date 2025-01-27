@@ -17,27 +17,23 @@ from matplotlib.patches import Rectangle
 
 def plot_coco_annotations(image_path, annotations, class_ids, category_map, image_path_secondary=None):
     """Plot COCO annotations on one or two images."""
-    # Charger la première image
     img = cv2.imread(image_path)
     if img is None:
         raise FileNotFoundError(f"Image not found: {image_path}")
     img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
-    # Charger la seconde image si nécessaire
     if image_path_secondary:
         img_secondary = cv2.imread(image_path_secondary)
         if img_secondary is None:
             raise FileNotFoundError(f"Image not found: {image_path_secondary}")
         img_secondary = cv2.cvtColor(img_secondary, cv2.COLOR_BGR2RGB)
 
-        # Configuration des sous-graphes
         fig, axes = plt.subplots(1, 2, figsize=(16, 8))
         axes[0].imshow(img)
         axes[0].axis('off')
         axes[1].imshow(img_secondary)
         axes[1].axis('off')
 
-        # Ajouter les annotations aux deux images
         for ax, image in zip(axes, [img, img_secondary]):
             for bbox, class_id in zip(annotations, class_ids):
                 x, y, w, h = bbox
@@ -47,13 +43,11 @@ def plot_coco_annotations(image_path, annotations, class_ids, category_map, imag
                 ax.text(x, y - 10, label, color='red', fontsize=10, weight='bold')
 
     else:
-        # Affichage pour une seule image
         plt.figure(figsize=(10, 8))
         plt.imshow(img)
         plt.axis('off')
         ax = plt.gca()
 
-        # Ajouter les annotations à l'image
         for bbox, class_id in zip(annotations, class_ids):
             x, y, w, h = bbox
             rect = Rectangle((x, y), w, h, linewidth=2, edgecolor='red', facecolor='none')
