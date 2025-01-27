@@ -19,7 +19,7 @@ The script gathers and converts each XML file in the input folder into a COCO/JS
 
 ---
 
-## Annotation Visualization Script
+## Label and boxes visualization Script
 
 A script for visualizing annotations on images or image pairs to verify the LLVIP dataset conversion. The `--mode` argument allows you to monitor annotations either in mono-spectrum mode (`mono`) or on both image pairs (`multi`) for a randomly selected image.
 
