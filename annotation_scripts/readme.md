@@ -1,7 +1,7 @@
 # Annotations conversion and vizualisation scripts
 This subfolder contains several miscellanous used for the study, such as the conversion voc-2-coco script ... Scripts for annotation (conversion and monitoring) are adapted for the LLVIP dataset, but feel free to adapt it for the FLIR-aligned dataset (minor modifications). 
 
-# Voc-to-coco converter : 
+# Voc-to-coco converter 
 A script has been used in order to convert voc/xlm annotations from the LLVIP dataset into a COCO/Json like format, which is easier to handle with DETR-like models. 
 Example of command to use it : (you need to download the original annotation files here
 ```bash 
